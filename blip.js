@@ -4,6 +4,7 @@
 
 function showBlip(b) {
 	var linkre=/(http:\/\/rdir.pl.[A-Za-z0-9]+)/g;
+	var tagre=/#([A-z]+)/g;
 	var i;
 	for (i=0; i < b.length; i++) {
 		/*
@@ -12,6 +13,7 @@ function showBlip(b) {
 		 */
 		var body=b[i].body;
 		body=body.replace(linkre, '<a href="$1">[link]</a>');
+		body=body.replace(tagre, '<a href="http://blip.pl/tags/$1">#$1</a>');
 		$('blipentries').insert("<li>" + body + "</li>");
 	}
 	$('blip').show();
