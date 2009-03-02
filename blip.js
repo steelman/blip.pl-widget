@@ -39,7 +39,7 @@
  };
  //]]>
  </script>
- <script type="text/javascript" src="http://twoj.adres/blip.js">
+ <script type="text/javascript" src="http://twoj.adres/blip.js"></script>
 
  *
  * Parametry:
@@ -150,7 +150,7 @@ if (typeof blip_widget == "undefined") {
 	if (typeof blip_widget.entries == "undefined")
 		blip_widget.entries = 5;
 
-	document.write('<div id="blip" />');
+	document.write('<div id="blip"></div>');
 	document.write('<script id="blip-data" type="text/javascript" ' +
 		'src="http://api.blip.pl/users/'+ blip_widget.username +
 		'/statuses.json?callback=show_blip&limit='+ blip_widget.entries + '"></script>');
