@@ -108,7 +108,7 @@ var show_blip = function(b) {
 
 	var blipre=new RegExp("(http://blip.pl/s/\\d+)", "g");
 	var linkre=new RegExp("(http://rdir.pl/[A-Za-z0-9]+)", "g");
-	var tagre=new RegExp("#[a-z0-9ąćęłńóśźż]+", "gi");
+	var tagre=new RegExp("#[-_a-z0-9ąćęłńóśźż]+", "gi");
 	var nickre=new RegExp("\\^([a-z0-9]+)", "gi");
 
 	var blipblock=document.getElementById('blip');
@@ -122,7 +122,7 @@ var show_blip = function(b) {
 		var body=b[i].body;
 		body=body.replace(tagre, function(t) {
 			t=t.substr(1);
-			var plt = t.tr("ąćęłńóśźż", "acelnoszz");
+			var plt = t.tr("ąćęłńóśźż", "acelnoszz").replace(/[-_]+/g,'');
 			return '<a href="http://blip.pl/tags/'+ plt +'">#'+ t +'</a>';
 		});
 
