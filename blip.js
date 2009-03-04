@@ -122,7 +122,7 @@ var show_blip = function(b) {
 		var body=b[i].body;
 		body=body.replace(tagre, function(t) {
 			t=t.substr(1);
-			var plt = t.tr("ąćęłńóśźż", "acelnoszz").replace(/[-_]+/g,'');
+			var plt = t.tr("ąćęłńóśźż-_", "acelnoszz");
 			return '<a href="http://blip.pl/tags/'+ plt +'">#'+ t +'</a>';
 		});
 
