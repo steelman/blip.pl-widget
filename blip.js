@@ -193,7 +193,7 @@ var show_blip = function(b) {
 		return;
 	}
 
-	var linkre  = /http:\/\/[\S_]+(?:\b|$)|\^:[A-Za-z0-9]+|#[A-Za-z0-9ĘÓĄŚŁŻŹĆŃęóąśłżźćń_\-]{2,50}/im;
+	var linkre  = /http:\/\/[\S_]+(?:\b|$)|\^[A-Za-z0-9]+|#[A-Za-z0-9ĘÓĄŚŁŻŹĆŃęóąśłżźćń_\-]{2,50}/im;
 	var filmre  = /^http:\/\/(?:www\.)?(?:(?:[.\S]+.)?youtube.com\/watch\?v=|video.google.com\/videoplay\?docid=[0-9\-]*|vimeo.com\/\d+)/im;
 	var musicre = /^http:\/\/(?:www\.)?jamendo.com\/(?:[a-z][a-z]\/)?(?:album|track|playlist)\/(?:\d+)(?:\/.*)?/im;
 	var blipre  = /^http:\/\/(?:www\.)?blip.pl\/(?:dm|s)\/\d+/im;
@@ -229,9 +229,11 @@ var show_blip = function(b) {
 			li.appendChild(node);
 
 			if (match.substring(0,1) == '#') {
+				match = match.tr('ąćęłńóśźż_-', 'acelnoszz');
 				node = create_link('http://blip.pl/tags/' + match.substring(1), match, 'tag')
 
 			} else if (match.substring(0,1) == '^') {
+				match = match.tr('ąćęłńóśźż_-', 'acelnoszz');
 				node = create_link('http://'+ match.substring(1) +'.blip.pl/', match, 'użytkownik')
 
 			} else if (match.search(blipre) != -1) {
