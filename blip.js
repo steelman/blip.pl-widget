@@ -130,7 +130,7 @@ var create_icon = function(type,text) {
 		blip : '[blip]',
 		link : '[link]',
 		muzyka : '[muzyka]',
-		image : '[obraz]',
+		obraz : '[obraz]',
 		film  : '[film]'
 	};
 
