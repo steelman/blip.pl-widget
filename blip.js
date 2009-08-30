@@ -304,7 +304,9 @@ if (typeof blip_widget == "undefined") {
 		blip_widget.icons = {};
 	
 	var data_src = 'http://api.blip.pl/users/'+ blip_widget.username +
-			'/statuses.json?callback=show_blip&limit='+ blip_widget.entries;
+			'/statuses.json?callback=show_blip&limit='+ blip_widget.entries +
+			'nocache=' + Math.round(Math.random()*(1<<30));
+			/* nocache= zabezpiecza przed zatykaniem cache'u na blipie */
 
 	if (document.write && (document.getElementById('blip') == null)) try {
 			document.write('<div id="blip"></div>');
